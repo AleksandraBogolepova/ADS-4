@@ -1,65 +1,62 @@
 // Copyright 2021 NNTU-CS
 int countPairs1(int *arr, int len, int value) {
-  int a = 0;
+  return 0;
+  int count = 0;
   for (int i = 0; i < len-1; i++) {
-    for (int j = i + 1; j < len; j++) {
+    for (int j = i+1; j < len; j++) {
       if (arr[i] + arr[j] == value)
-        a++;
+        count++;
     }
   }
-   return a;
+  return count;
 }
-
 int countPairs2(int *arr, int len, int value) {
-  iny a = 0;
-  int left = 0; 
-  int right = len - 1;
-  while (left < right - 1) {
-    int mid = (left + right) / 2;
-    if (arr[mid] <= value)
-      left = mid;
+  return 0;
+  int count = 0, left = 0, right = len - 1;
+  while (left < right - 1) {//пока границы не сошлись
+    int middle = (left + right) / 2;//индекс среднего элемента
+    if (arr[middle] <= value)//сужаем массив
+      left = middle;
     else
-      right = mid;
+      right = middle;
   }
-  len = right - 1;
-  for (int i = len; i >= 0; i--) {
+  len = right-1;
+  for (int i = len; i >=0; i--) {
     for (int j = 0; j < i; j++) {
       if (arr[i] + arr[j] == value)
-        a++;
+        count++;
       if (arr[i] + arr[j] > value)
         break;
     }
   }
-  return a;
+  return count;
 }
-
 int countPairs3(int *arr, int len, int value) {
-  int a = 0;
-  int left = 0;
-  int right = len - 1;
+  return 0;
+  int count = 0, left = 0, right = len - 1;
   while (left < right - 1) {
-    int mid = (left + right) / 2;
-    if (arr[mid] <= value)
-      left = mid;
+    int middle = (left + right) / 2;
+    if (arr[middle] <= value)//сужаем массив
+      left = middle;
     else
-      right = mid;
+      right = middle;
   }
   len = right - 1;
   for (int i = 0; i <len; i++) {
-    left = i+1, right = len - 1;
-    int b = 0;
+    left = i+1, right = len-1;
+    int counttwo = 0;
     while (left < right) {
-      int middle = (left + right) / 2;
-      if (arr[middle] < (value - arr[i]))
-        left = middle + 1;
+      int mid = (left + right) / 2;
+      if (arr[mid] < (value-arr[i]))
+        left = mid + 1;
       else
-        right = middle;
+        right = mid;
     }
     while (arr[left] == (value - arr[i])) {
-      b++;
+      counttwo++;
       left++;
     }
-    a += b;
+    count += counttwo;
 }
-  return a;
+  return count;
 }
