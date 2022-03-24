@@ -1,6 +1,5 @@
 // Copyright 2021 NNTU-CS
 int countPairs1(int *arr, int len, int value) {
-  return 0;
   int count = 0;
   for (int i = 0; i < len-1; i++) {
     for (int j = i+1; j < len; j++) {
@@ -11,7 +10,6 @@ int countPairs1(int *arr, int len, int value) {
   return count;
 }
 int countPairs2(int *arr, int len, int value) {
-  return 0;
   int count = 0, left = 0, right = len - 1;
   while (left < right - 1) {//пока границы не сошлись
     int middle = (left + right) / 2;//индекс среднего элемента
@@ -32,7 +30,6 @@ int countPairs2(int *arr, int len, int value) {
   return count;
 }
 int countPairs3(int *arr, int len, int value) {
-  return 0;
   int count = 0, left = 0, right = len - 1;
   while (left < right - 1) {
     int middle = (left + right) / 2;
